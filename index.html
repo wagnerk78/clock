@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Digital</title>
+    <style>
+        #clock {
+            background-color: aquamarine;
+            font-size: 150px;
+            margin: 0;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 20px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div id="clock">
+
+
+
+    </div>
+
+
+    <script>
+        setInterval(showClock, 1000);
+        function showClock() {
+            let time = new Date();
+            let hour = time.getHours();
+            if (hour > 12) {
+                hour1 = String((hour - 12)).padStart(2, "0");
+                type =" PM"
+            } else if (hour == 12) {
+                hour1 = String(hour);
+                type = " PM"
+            } else {
+                hour1 = String((hour)).padStart(2, "0");
+                type =" AM"
+            }
+
+            let minutes = String(time.getMinutes()).padStart(2, "0");
+            let seconds = String(time.getSeconds()).padStart(2, "0");
+            let timeNow = hour1 + ":" + minutes + ":" + seconds + type
+            document.getElementById("clock").innerHTML = timeNow;
+        }
+
+        showClock();
+
+    </script>
+
+</body>
+
+</html>
